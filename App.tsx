@@ -64,8 +64,8 @@ const App: React.FC = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-6 bg-grid">
-        <div className="glass-card p-10 max-w-md w-full rounded-2xl border-amber-500/20 shadow-2xl animate-float">
+      <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#070708]">
+        <div className="glass-card p-10 max-w-md w-full rounded-2xl border-amber-500/20 shadow-2xl animate-float relative z-[101]">
           <div className="flex flex-col items-center mb-8">
             <div className="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center font-black text-black text-2xl mb-6 shadow-lg shadow-amber-500/20">
               RN
