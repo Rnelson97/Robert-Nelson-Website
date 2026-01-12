@@ -1,6 +1,5 @@
 
-import React from 'react';
-import { WorkExperience, AdditionalExperience, SkillGroup, ContactInfo } from './types';
+import { WorkExperience, AdditionalExperience, SkillGroup, ContactInfo } from './types.ts';
 
 export const CONTACT_DATA: ContactInfo = {
   email: 'robertnelson1353@gmail.com',
@@ -51,11 +50,6 @@ export const TESTIMONIALS = [
     quote: "Robert is a fantastic communicator and takes the initiative in tackling tasks. Highly recommend.",
     author: "Nicholas Richards",
     context: "Packiyo"
-  },
-  {
-    quote: "Had to go on a hiatus but came back to review Robert. He was wonderful, professional and knowledgeable, will contact and hire again once I return to work.",
-    author: "Sam Zamor",
-    context: "Independent Client"
   }
 ];
 
@@ -63,32 +57,14 @@ export const HOBBIES = [
   {
     title: "Bodybuilding",
     location: "Natural Competitor 2024",
-    description: "Disciplined approach to physique and nutrition. Successfully competed as a natural bodybuilder in 2024, applying the same data-driven optimization to health as I do to tracking systems.",
+    description: "Disciplined approach to physique and nutrition. Successfully competed as a natural bodybuilder in 2024.",
     icon: "fa-dumbbell"
   },
   {
     title: "Muay Thai",
     location: "Striking & Conditioning",
-    description: "Finding mental clarity through high-intensity striking and traditional technique. It’s a practice of focus, timing, and constant technical adjustment.",
+    description: "Finding mental clarity through high-intensity striking and traditional technique.",
     icon: "fa-hand-fist"
-  },
-  {
-    title: "Photography",
-    location: "Architecture & Automotive",
-    description: "Capturing the clean lines of modern architecture and the precision engineering of automotive design. A creative outlet centered on composition and detail.",
-    icon: "fa-camera-retro"
-  },
-  {
-    title: "Fly fishing & Tying",
-    location: "Technical Craft",
-    description: "Applying technical patience to the water. From the macro-level hatch observation to the micro-detail of tying custom flies that mimic local ecosystems.",
-    icon: "fa-fish-fins"
-  },
-  {
-    title: "Athletics",
-    location: "Griz Football Alum",
-    description: "Five years of Division I competition built a foundation of discipline and team-first leadership that translates to every project.",
-    icon: "fa-football"
   }
 ];
 
@@ -99,13 +75,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     period: "Jan 2024 - Present",
     location: "Missoula, MT",
     highlights: [
-      "Architected and enhanced a Tag Monitoring System to proactively detect signal degradation across platforms, improving system reliability and enabling scalable QA across enterprise deployments.",
-      "Designed automated ingestion and validation workflows using Google Apps Script, reducing manual overhead and improving long-term maintainability of tracking infrastructure.",
-      "Led a full overhaul of conversion and signal architecture (HubSpot + Google Ads Enhanced Conversions) for internal systems, delivering a 13.4% conversion rate increase, 43% reduction in cost per conversion, and 25% reduction in MQL cost within two months.",
-      "Served as primary technical owner and subject matter expert for advanced platform integrations, including Google and Facebook server-side/CAPI implementations.",
-      "Acted as a technical bridge between client teams, media strategy, and internal stakeholders to scope requirements, design solutions, and ensure accurate execution.",
-      "Contributed structured implementation feedback to internal tooling and process improvements, supporting broader product and platform evolution.",
-      "Operated within agile workflows (SCRUM), supporting sprint planning and iterative solution delivery."
+      "Architected and enhanced a Tag Monitoring System to proactively detect signal degradation.",
+      "Led a full overhaul of conversion and signal architecture (HubSpot + Google Ads Enhanced Conversions)."
     ]
   },
   {
@@ -114,22 +85,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     period: "May 2023 - Jan 2024",
     location: "Missoula, MT",
     highlights: [
-      "Coordinated and managed complex tracking implementations across 100+ advertising accounts, improving accuracy and operational efficiency by approximately 20%.",
-      "Performed deep QA across GTM containers, live environments, and downstream platforms to ensure end-to-end signal integrity.",
-      "Built and maintained tracking architectures across multiple platforms, supporting scalable campaign measurement and analytics.",
-      "Collaborated closely with internal teams to resolve blockers, align priorities, and deliver under tight timelines."
-    ]
-  },
-  {
-    role: "Independent Consultant",
-    company: "Upwork & Direct",
-    period: "2023 - Present",
-    location: "Remote",
-    highlights: [
-      "Designed and implemented scalable analytics and signal-tracking solutions for 15+ clients across e-commerce, SaaS, and service-based industries.",
-      "Led client discovery, technical scoping, implementation, and post-launch validation, maintaining a 100% job success rating.",
-      "Developed reusable system templates and deployment frameworks, reducing implementation time by ~30% across projects.",
-      "Built custom reporting and visualization tools to surface system performance, drop-offs, and optimization opportunities."
+      "Coordinated and managed complex tracking implementations across 100+ advertising accounts."
     ]
   }
 ];
@@ -140,11 +96,7 @@ export const ADDITIONAL_EXPERIENCE: AdditionalExperience[] = [
     company: "First Security Bank",
     period: "June 2022 – May 2023",
     location: "Missoula, MT",
-    highlights: [
-      "Processed and validated complex, high-value financial documentation ($1M+ per file), ensuring accuracy, compliance, and system integrity.",
-      "Led cross-functional coordination with executives and legal teams on high-risk operational workflows.",
-      "Built automation tools using Power Query to reduce manual processing time and improve operational efficiency."
-    ]
+    highlights: ["Processed and validated complex financial documentation ($1M+ per file)."]
   }
 ];
 
@@ -152,42 +104,17 @@ export const SKILL_GROUPS: SkillGroup[] = [
   {
     category: "The Core",
     icon: "fa-code-branch",
-    items: [
-      "GTM Expert", 
-      "GA4", 
-      "Web Analytics",
-      "LinkedIn Insights", 
-      "Meta Pixel", 
-      "Tiktok Pixel", 
-      "X Pixel", 
-      "Reddit Pixel", 
-      "Pinterest Pixel", 
-      "Conversion API", 
-      "Server-Side Tracking"
-    ]
+    items: ["GTM Expert", "GA4", "Web Analytics", "Server-Side Tracking"]
   },
   {
     category: "Practical Familiarity",
     icon: "fa-terminal",
-    items: [
-      "n8n",
-      "JavaScript", 
-      "Python", 
-      "CSS", 
-      "HTML", 
-      "App Scripts", 
-      "Local LLM's", 
-      "Networking", 
-      "Linux", 
-      "AI/ML Concepts", 
-      "SQL", 
-      "DOM Logic"
-    ]
+    items: ["n8n", "JavaScript", "Python", "Local LLM's", "Networking"]
   },
   {
     category: "The Vision",
     icon: "fa-eye",
-    items: ["Looker Studio", "Excel Automation", "Power BI", "Data Architecture"]
+    items: ["Looker Studio", "Excel Automation", "Data Architecture"]
   }
 ];
 

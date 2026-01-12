@@ -10,7 +10,7 @@
     <meta name="description" content="Personal portfolio of Robert Nelson, Tracking & Analytics Specialist. Expert in GTM, GA4, and automated marketing intelligence.">
     <meta name="author" content="Robert Nelson">
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS - Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -112,11 +112,6 @@
             100% { transform: translateY(1200%); }
         }
 
-        @keyframes slow-pulse {
-            0%, 100% { opacity: 0.05; transform: scale(1); }
-            50% { opacity: 0.15; transform: scale(1.1); }
-        }
-
         .animate-float { animation: float 8s ease-in-out infinite; }
         
         .scan-line {
@@ -126,10 +121,6 @@
             opacity: 0.1;
             position: absolute;
             animation: scan 10s linear infinite;
-        }
-
-        .data-pulse {
-            animation: slow-pulse 12s ease-in-out infinite;
         }
 
         .reveal {
@@ -153,17 +144,14 @@
             opacity: 1;
             transform: translateY(0);
         }
-
+        
+        /* Stagger delays */
         .reveal-stagger.active > *:nth-child(1) { transition-delay: 0.1s; }
         .reveal-stagger.active > *:nth-child(2) { transition-delay: 0.2s; }
         .reveal-stagger.active > *:nth-child(3) { transition-delay: 0.3s; }
-        .reveal-stagger.active > *:nth-child(4) { transition-delay: 0.4s; }
-        .reveal-stagger.active > *:nth-child(5) { transition-delay: 0.5s; }
-        .reveal-stagger.active > *:nth-child(6) { transition-delay: 0.6s; }
-
     </style>
 
-    <!-- Import Map and Babel for In-Browser JSX/TSX Support -->
+    <!-- Import Map for ESM Modules -->
     <script type="importmap">
 {
   "imports": {
@@ -175,13 +163,15 @@
   }
 }
 </script>
+    
+    <!-- Babel for on-the-fly TSX compilation -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="bg-grid">
     <canvas id="bg-canvas"></canvas>
     <div id="root"></div>
 
-    <!-- We tell Babel to compile this script -->
+    <!-- Script must be type="text/babel" to tell Babel to handle it -->
     <script type="text/babel" data-type="module">
         import React from 'react';
         import ReactDOM from 'react-dom/client';
@@ -201,7 +191,6 @@
             canvas.height = window.innerHeight;
             particles = [];
             const particleCount = Math.floor(window.innerWidth / 15);
-            
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
@@ -227,18 +216,6 @@
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(245, 158, 11, ${p.opacity})`;
                 ctx.fill();
-                for (let j = i + 1; j < particles.length; j++) {
-                    const p2 = particles[j];
-                    const dist = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
-                    if (dist < 100) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(245, 158, 11, ${(1 - dist/100) * 0.12})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                }
             });
             requestAnimationFrame(animate);
         }

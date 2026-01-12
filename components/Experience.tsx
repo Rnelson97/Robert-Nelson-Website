@@ -1,11 +1,10 @@
 
 import React from 'react';
-import { WORK_EXPERIENCE, ADDITIONAL_EXPERIENCE } from '../constants';
+import { WORK_EXPERIENCE, ADDITIONAL_EXPERIENCE } from '../constants.tsx';
 
 const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-24 relative overflow-hidden">
-      {/* Decorative side element */}
       <div className="absolute left-0 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-amber-500/20 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-6">
@@ -54,36 +53,6 @@ const Experience: React.FC = () => {
                 </ul>
             </div>
           ))}
-        </div>
-
-        {/* Additional Experience Section */}
-        <div className="mt-32">
-          <div className="mb-12">
-            <h2 className="text-sm font-mono text-amber-500 mb-2 uppercase tracking-widest">// Technical Operations & Compliance</h2>
-            <h3 className="text-3xl font-bold text-white italic">Additional Experience</h3>
-          </div>
-
-          <div className="grid gap-6">
-            {ADDITIONAL_EXPERIENCE.map((item, idx) => (
-              <div key={idx} className="glass-card p-8 border-l border-white/10 hover:border-amber-500/30 transition-all">
-                <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-6">
-                  <div>
-                    <h4 className="text-xl font-bold text-white">{item.role}</h4>
-                    <p className="text-amber-500/80 font-medium">{item.company} — {item.location}</p>
-                  </div>
-                  <div className="text-xs font-mono text-gray-500 uppercase tracking-widest">{item.period}</div>
-                </div>
-                <ul className="space-y-3">
-                  {item.highlights.map((bullet, i) => (
-                    <li key={i} className="text-gray-400 text-sm leading-relaxed flex gap-3">
-                      <span className="text-amber-500/40 font-bold">—</span>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

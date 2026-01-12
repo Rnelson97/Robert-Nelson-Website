@@ -1,11 +1,12 @@
+
 import React, { useEffect } from 'react';
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import Experience from './components/Experience';
-import Skills from './components/Skills';
-import Personal from './components/Personal';
-import Freelance from './components/Freelance';
-import Contact from './components/Contact';
+import Navigation from './components/Navigation.tsx';
+import Hero from './components/Hero.tsx';
+import Experience from './components/Experience.tsx';
+import Skills from './components/Skills.tsx';
+import Personal from './components/Personal.tsx';
+import Freelance from './components/Freelance.tsx';
+import Contact from './components/Contact.tsx';
 
 const App: React.FC = () => {
   useEffect(() => {

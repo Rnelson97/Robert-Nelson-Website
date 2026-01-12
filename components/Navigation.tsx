@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CONTACT_DATA } from '../constants';
+import { CONTACT_DATA } from '../constants.tsx';
 
 const Navigation: React.FC = () => {
   return (
