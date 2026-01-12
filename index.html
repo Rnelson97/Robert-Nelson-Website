@@ -10,10 +10,9 @@
     <meta name="description" content="Personal portfolio of Robert Nelson, Tracking & Analytics Specialist. Expert in GTM, GA4, and automated marketing intelligence.">
     <meta name="author" content="Robert Nelson">
     
-    <!-- Tailwind CSS - Using the CDN but suppressing the warning for cleaner production logs -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      // Suppress the Tailwind production warning in console
       tailwind.config = {
         theme: {
           extend: {
@@ -24,10 +23,6 @@
             }
           }
         }
-      }
-      // This environment check helps keep console logs clean
-      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-        console.log("%cSystem Initialized: Robert Nelson Portfolio V1.0", "color: #f59e0b; font-weight: bold; font-size: 12px;");
       }
     </script>
 
@@ -167,22 +162,35 @@
         .reveal-stagger.active > *:nth-child(6) { transition-delay: 0.6s; }
 
     </style>
-<script type="importmap">
+
+    <!-- Import Map and Babel for In-Browser JSX/TSX Support -->
+    <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom": "https://esm.sh/react-dom@^19.2.3",
-    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="bg-grid">
     <canvas id="bg-canvas"></canvas>
     <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+
+    <!-- We tell Babel to compile this script -->
+    <script type="text/babel" data-type="module">
+        import React from 'react';
+        import ReactDOM from 'react-dom/client';
+        import App from './App.tsx';
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+
     <script>
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
@@ -208,28 +216,20 @@
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
             particles.forEach((p, i) => {
                 p.x += p.speedX;
                 p.y += p.speedY;
-
                 if (p.x < 0) p.x = canvas.width;
                 if (p.x > canvas.width) p.x = 0;
                 if (p.y < 0) p.y = canvas.height;
                 if (p.y > canvas.height) p.y = 0;
-
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(245, 158, 11, ${p.opacity})`;
                 ctx.fill();
-
-                // Draw lines between close particles
                 for (let j = i + 1; j < particles.length; j++) {
                     const p2 = particles[j];
-                    const dx = p.x - p2.x;
-                    const dy = p.y - p2.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    
+                    const dist = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
                     if (dist < 100) {
                         ctx.beginPath();
                         ctx.strokeStyle = `rgba(245, 158, 11, ${(1 - dist/100) * 0.12})`;
@@ -242,7 +242,6 @@
             });
             requestAnimationFrame(animate);
         }
-
         window.addEventListener('resize', init);
         init();
         animate();
