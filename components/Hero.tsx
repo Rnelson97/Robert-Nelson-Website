@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none"></div>
               <div className="absolute inset-0 flex items-center justify-center bg-zinc-900">
                 <img 
-                  src="https://r2.erweima.ai/ai_image/1070851e-e2c7-43c2-a42e-13769c8e8e78.jpg" 
+                  src="/portrait.png" 
                   alt="Robert Nelson Portrait" 
                   className="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 hover:brightness-110 transition-all duration-700 scale-105 hover:scale-100"
                 />
