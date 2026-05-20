@@ -1,11 +1,13 @@
-# Use a lightweight Nginx web server image
+# Stage 1: Build the React/Vite app
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY package.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Stage 2: Serve the app with Nginx
 FROM nginx:alpine
-
-# Copy all your website files into the web server's public folder
-COPY . /usr/share/nginx/html
-
-# Tell Nginx to serve TypeScript and JSX files as readable JavaScript
-RUN echo "types { application/javascript tsx ts jsx; }" > /etc/nginx/conf.d/custom-mime.conf
-
-# Expose port 80 (the default web port)
+COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
