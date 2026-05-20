@@ -31,8 +31,9 @@ const Navigation: React.FC = () => {
           <a href="#skills" className="hover:text-amber-500 transition-colors hidden md:block">Skills</a>
           <div className="flex items-center gap-3">
             <a 
-              href="#" 
-              onClick={(e) => { e.preventDefault(); window.print(); }} 
+              href="/resume.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 px-3 py-1.5 border border-white/10 rounded hover:border-amber-500/50 hover:text-white transition-all text-xs font-mono"
             >
               <i className="fas fa-file-pdf text-amber-500"></i>
